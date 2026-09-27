@@ -1,0 +1,9 @@
+{
+  "name": "game-economy-simulator",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Deterministic economy simulator for game rewards, sinks, inflation and player balances.",
+  "main": "src/index.js",
+  "scripts": { "test": "node --test", "simulate": "node src/demo.js" },
+  "engines": { "node": ">=20" }
+}
