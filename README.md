@@ -1,12 +1,26 @@
-# Game Economy Simulator
+<div align="center">
 
-A deterministic simulator for testing whether a game/server economy is actually balanced before putting it in front of players.
+<img src="https://capsule-render.vercel.app/api?type=waving&height=200&text=GAME%20ECONOMY%20SIMULATOR&fontAlignY=38&desc=REWARDS%20%E2%80%A2%20SINKS%20%E2%80%A2%20INFLATION&descAlignY=58&color=0:050505,55:202020,100:5a1616&fontColor=f5f5f5&descColor=d4d4d4" width="100%" />
 
-I built this around a problem I have run into with Minecraft economies: rewards are easy to add, but if you do not model the sinks, taxes and player distribution, the currency can become meaningless fast.
+![Simulation](https://img.shields.io/badge/model-seeded%20simulation-111111?style=for-the-badge)
+![Node](https://img.shields.io/badge/Node.js-20%2B-2b2b2b?style=for-the-badge&logo=nodedotjs)
+![Tests](https://img.shields.io/badge/tests-node:test-7a1f1f?style=for-the-badge)
+
+**A deterministic model for testing whether a game economy survives its own reward loop.**
+
+</div>
+
+---
+
+## Why I built it
+
+Rewards are easy to add. The harder part is making sure currency still means something after weeks of player activity.
+
+This project lets me test rewards, sinks, taxes and wealth distribution before those numbers reach a live server.
 
 ## It simulates
 
-- starting player balances
+- starting balances
 - daily reward generation
 - reward variance
 - probability-based spending sinks
@@ -16,7 +30,7 @@ I built this around a problem I have run into with Minecraft economies: rewards 
 - median / richest / poorest balances
 - inflation and concentration warnings
 
-The simulation is seeded, so the same inputs produce the same output. That makes balancing changes testable instead of depending on random luck.
+The simulation is seeded, so the same inputs produce the same output.
 
 ```js
 import { simulateEconomy, healthSummary } from './src/index.js';
@@ -26,6 +40,18 @@ console.log(result.final);
 console.log(healthSummary(result));
 ```
 
+## Test
+
+```bash
+npm test
+```
+
 Requires Node 20+. No runtime dependencies.
 
-This is a modelling project, not an economy plugin. The idea is to tune the numbers here first, then feed the decisions into the real server/plugin layer.
+## Boundary
+
+This is a modelling project, not an economy plugin. The point is to tune decisions here, then feed better numbers into the real server/plugin layer.
+
+---
+
+<div align="center"><sub>YukiShinobi // balance the economy before players break it for you.</sub></div>
